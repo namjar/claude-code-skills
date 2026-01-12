@@ -1,0 +1,14 @@
+{
+  "name": "claude-code-skills",
+  "version": "1.0.0",
+  "description": "Claude Code Skills集合 - 7个实用技能",
+  "author": {
+    "name": "namjar"
+  },
+  "license": "MIT",
+  "keywords": ["code-review", "invoice", "oracle", "librarian", "frontend", "documentation"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/namjar/claude-code-skills"
+  }
+}
