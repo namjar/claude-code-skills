@@ -6,31 +6,50 @@ Claude Code 技能集合 - 提升你的 AI 编程助手能力。
 
 | 技能 | 描述 | 用法 |
 |------|------|------|
-| [code-roaster](./code-roaster) | Gordon Ramsay 风格毒舌代码审查，生成搞笑且实用的代码审查报告 | `/code-roaster` |
-| [invoice-scanner](./invoice-scanner) | 发票扫描识别，提取关键信息并生成分类统计报告 | `/invoice-scanner ./发票文件夹` |
-| [thinking-frameworks](./thinking-frameworks) | 25种跨职业思维工具框架，帮助多角度分析问题 | `/thinking-frameworks` |
+| [code-roaster](./code-roaster) | Gordon Ramsay 风格毒舌代码审查 | `/code-roaster` |
+| [invoice-scanner](./invoice-scanner) | 发票扫描识别，生成分类统计报告 | `/invoice-scanner ./发票` |
+| [thinking-frameworks](./thinking-frameworks) | 25种跨职业思维工具框架 | `/thinking-frameworks` |
+| [oracle](./oracle) | 战略技术顾问，架构设计与调试 | `/oracle` |
+| [librarian](./librarian) | 开源库研究专家 | `/librarian "问题"` |
+| [frontend-engineer](./frontend-engineer) | UI/UX 设计工程师 | `/frontend-engineer` |
+| [doc-writer](./doc-writer) | 技术文档专家 | `/doc-writer` |
+
+## 技能分类
+
+### 开发辅助
+- **code-roaster** - 代码质量审查
+- **oracle** - 架构设计与技术决策
+- **frontend-engineer** - UI/UX 设计实现
+
+### 研究分析
+- **librarian** - 开源库研究
+- **thinking-frameworks** - 多角度问题分析
+
+### 文档处理
+- **doc-writer** - 技术文档撰写
+- **invoice-scanner** - 发票识别统计
 
 ## 安装方法
 
 ### 方法一：作为本地插件安装
 
-1. 克隆仓库到本地：
+1. 克隆仓库：
 ```bash
 git clone https://github.com/namjar/claude-code-skills.git
 ```
 
-2. 复制技能到 Claude Code 插件目录：
+2. 复制到 Claude Code 插件目录：
 ```bash
 mkdir -p ~/.claude/plugins/local/my-skills/.claude-plugin
 mkdir -p ~/.claude/plugins/local/my-skills/skills
 
-# 复制技能文件
-cp -r claude-code-skills/code-roaster ~/.claude/plugins/local/my-skills/skills/
-cp -r claude-code-skills/invoice-scanner ~/.claude/plugins/local/my-skills/skills/
-cp -r claude-code-skills/thinking-frameworks ~/.claude/plugins/local/my-skills/skills/
+# 复制所有技能
+for skill in code-roaster invoice-scanner thinking-frameworks oracle librarian frontend-engineer doc-writer; do
+  cp -r claude-code-skills/$skill ~/.claude/plugins/local/my-skills/skills/
+done
 ```
 
-3. 创建插件配置文件 `~/.claude/plugins/local/my-skills/.claude-plugin/plugin.json`：
+3. 创建插件配置 `~/.claude/plugins/local/my-skills/.claude-plugin/plugin.json`：
 ```json
 {
   "name": "my-skills",
@@ -39,7 +58,7 @@ cp -r claude-code-skills/thinking-frameworks ~/.claude/plugins/local/my-skills/s
 }
 ```
 
-4. 在 `~/.claude/settings.json` 中启用插件：
+4. 在 `~/.claude/settings.json` 启用：
 ```json
 {
   "enabledPlugins": {
@@ -52,36 +71,13 @@ cp -r claude-code-skills/thinking-frameworks ~/.claude/plugins/local/my-skills/s
 
 ### 方法二：直接使用
 
-将 SKILL.md 文件内容复制到 Claude Code 对话中即可使用。
+将任意 SKILL.md 文件内容复制到 Claude Code 对话中即可使用。
 
-## 技能详情
+## 技能来源
 
-### code-roaster
-
-用 Gordon Ramsay 风格毒舌吐槽代码质量，生成搞笑且实用的代码审查报告。
-
-**功能特点：**
-- 多维度代码分析（代码异味、Bug、安全、性能、最佳实践）
-- 三种烤制模式（温和、标准、残暴）
-- 生成详细的 Markdown 报告
-
-### invoice-scanner
-
-扫描目录识别各类发票，提取关键信息并生成分类统计报告。
-
-**功能特点：**
-- 支持市内交通、长途交通、住宿、其他四大分类
-- 自动解压 ZIP 文件
-- 生成汇总统计和详细表格
-
-### thinking-frameworks
-
-25种跨职业思维工具框架，帮助从多角度分析复杂问题。
-
-**功能特点：**
-- 创造与设计、分析与验证、系统与工程等六大类思维工具
-- 单一工具应用和多工具组合
-- 视角切换清单
+- `code-roaster`, `invoice-scanner` - 原创
+- `thinking-frameworks` - 基于 Scott H. Young 的思维工具
+- `oracle`, `librarian`, `frontend-engineer`, `doc-writer` - 借鉴自 [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode)
 
 ## License
 
